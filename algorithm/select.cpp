@@ -38,7 +38,7 @@ vector<int> selectNthElement(const vector<int>& input, int from, int to)
 }
 
 
-vector<int> selectByPartialSort(const vector<int>& input, int from, int ro)
+vector<int> selectByPartialSort(const vector<int>& input, int from, int to)
 {
     assert(0 <= from && from < input.size());
     assert(0 <= to && to < input.size());
@@ -61,7 +61,7 @@ int main()
     print(input);
     print(selectBySorting(input, 5, 10));
     print(selectNthElement(input, 5, 10));
-    print(selectPartialSort(input, 5, 10));
+    print(selectByPartialSort(input, 5, 10));
 
     return 0;
 }
