@@ -10,4 +10,5 @@ string(REPLACE ";" " " CMAKE_CXX_FLAGS "${cxx_flags}")
 message(STATUS "cxx_flags = " ${CMAKE_CXX_FLAGS})
 
 add_subdirectory(algorithm)
+add_subdirectory(pattern)
 
