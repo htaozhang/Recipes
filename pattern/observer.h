@@ -1,3 +1,6 @@
+#ifndef OBSERVER_H_
+#define OBSERVER_H_
+
 #include <iostream>
 #include <vector>
 #include <stdio.h>
@@ -45,7 +48,7 @@ void Observable::register_(Observer* x)
 
 void Observable::unregister_(Observer* x)
 {
-    std::vector<Observer*>::iterator iter = 
+    std::vector<Observer*>::iterator iter =
         std::find(observers_.begin(), observers_.end(), x);
     if (iter != observers_.end())
     {
@@ -59,7 +62,7 @@ void Observable::notifyObservers()
     for (size_t i = 0; i < observers_.size(); i++)
     {
         Observer* x = observers_[i];
-        if (x) 
+        if (x)
         {
             x->update();
         }
@@ -75,17 +78,20 @@ class Foo : public Observer
     }
 };
 
-
+/*
 int main()
 {
-    Foo* p = new Foo;
-    Observable subject;
-    p->observer(&subject);
-    subject.notifyObservers();
-    delete p;
-    subject.notifyObservers();
+Foo* p = new Foo;
+Observable subject;
+p->observer(&subject);
+subject.notifyObservers();
+delete p;
+subject.notifyObservers();
 
-    return 0;
+return 0;
 }
+*/
 
+
+#endif
 
