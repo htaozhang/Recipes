@@ -40,7 +40,8 @@ namespace algo {
     public:
         explicit OfflinePrimeTable(int size)
             : size_(size),
-            prime_(new bool[size_ + 1]) {
+              prime_(new bool[size_ + 1]) 
+        {
             ::std::fill(prime_, prime_ + size_, true);   // -O2, faster than memset
             prime_[0] = prime_[1] = false;
 
