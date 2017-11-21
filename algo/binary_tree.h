@@ -1,19 +1,35 @@
 #ifndef BINARY_TREE_H_
 #define BINARY_TREE_H_
 
+#include <cstddef>
+
+namespace algo {
+
 template<typename ValueType, typename Print>
 class BinaryTree {
+    enum TraversalOrder {
+        kPreorder = 0,
+        kInorder,
+        kPostorder
+    };
+    
     struct Node {
-        Node(const ValueType& value) : value_(value), left_(nullptr), right_(nullptr) {}
+        Node(const ValueType& value)
+            : value_(value),
+              left_(nullptr),
+              right_(nullptr) {
+        }
+        
         ValueType value_;
         struct Node* left_;
         struct Node* right_;
     };
 
 public:
-    BinaryTree() {
-        root_ = nullptr;
+    BinaryTree() : root_(nullptr), size_(0), deep_(0) {
+
     }
+    
     ~BinaryTree() {
         Release(root_);
     }
@@ -42,16 +58,45 @@ public:
         }
     }
 
-    void PreorderTraversal() {
-        Print(root_);
-        PreorderTraversal(root_->left);
-        PreorderTraversal(root_->right_);
+public:
+    void Traversal(TraversalOrder order) {
+        switch (order) {
+            case kPreorder:
+                PreorderTraversal(root_);
+                break;
+            case kInorder:
+                InorderTraversal(root_);
+                break;
+            case kPostorder:
+                PostorderTraversal(root_);
+                break;
+            default:
+                break;
+        }
     }
-    void InorderTraversal() {
-
+    
+private:
+    void PreorderTraversal(Node* root) {
+        if (root) {
+            Print(root);
+            PreorderTraversal(root->left);
+            PreorderTraversal(root->right_);
+        }
     }
-    void PostorderTraversal() {
-
+    void InorderTraversal(Node* root) {
+        if (root) {
+            InorderTraversal(root->left);
+            Print(root);
+            InorderTraversal(root->right_);
+        }
+        
+    }
+    void PostorderTraversal(Node* root) {
+        if (root) {
+            PostorderTraversal(root->left);
+            PostorderTraversal(root->right);
+            Print(root);
+        }
     }
 
 private:
@@ -59,4 +104,6 @@ private:
     size_t size_;
     size_t deep_;
 };
+    
+}
 #endif /* BINARY_TREE_H_ */

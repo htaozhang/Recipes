@@ -1,2 +1,5 @@
 *.swp
 bulid/
+.DS_Store
+recipes.xcodeproj
+xcode/

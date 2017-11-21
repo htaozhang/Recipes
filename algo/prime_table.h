@@ -2,6 +2,7 @@
 #define PRIME_TABLE_H_
 
 #include <algorithm>
+
 namespace algo {
 
     class PrimeTable {
@@ -68,7 +69,7 @@ namespace algo {
                     return x;
                 }
             }
-
+            
             return -1;
         }
 
