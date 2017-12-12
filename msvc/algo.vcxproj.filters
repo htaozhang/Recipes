@@ -18,5 +18,11 @@
     <ClInclude Include="..\algo\prime_table.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\algo\print_binarytree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\algo\binary_tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

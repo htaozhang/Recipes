@@ -1,8 +1,8 @@
 #!/bin/sh
 
 rm -rf build
-mkdir -p bulid
-cd bulid
+mkdir -p build
+cd build
 cmake .. -DENABLE_TESTING=ON
 make
 

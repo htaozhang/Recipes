@@ -1,5 +1,5 @@
 *.swp
-bulid/
+build/
 .DS_Store
 recipes.xcodeproj
 xcode/
