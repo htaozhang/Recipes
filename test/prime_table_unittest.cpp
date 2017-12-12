@@ -1,5 +1,5 @@
 #include "../algo/prime_table.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 
 TEST(PrimeTable, Online) {

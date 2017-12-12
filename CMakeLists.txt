@@ -10,8 +10,28 @@ string(REPLACE ";" " " CMAKE_CXX_FLAGS "${cxx_flags}")
 message(STATUS "cxx_flags = " ${CMAKE_CXX_FLAGS})
 
 
-include_directories(${CMAKE_CURRENT_LIST_DIR}/3rd/googletest/include)
-link_directories(${CMAKE_CURRENT_LIST_DIR}/3rd/googletest/lib)
+option(ENABLE_TESTING "Enable smoke tests" OFF)
 
-add_subdirectory(test)
+if (ENABLE_TESTING)
+    enable_testing()
+
+    set(BUILD_GTEST ON)
+    set(BUILD_GMOCK OFF)
+    set(BUILD_SHARED_LIBS OFF)
+
+    mark_as_advanced(BUILD_GMOCK)
+    mark_as_advanced(BUILD_GTEST)
+    mark_as_advanced(gmock_build_tests)
+    mark_as_advanced(gtest_build_samples)
+    mark_as_advanced(gtest_build_tests)
+    mark_as_advanced(gtest_disable_pthreads)
+    mark_as_advanced(gtest_force_shared_crt)
+    mark_as_advanced(gtest_hide_internal_symbols)
+
+    add_subdirectory(third-party/googletest)
+    add_subdirectory(test)
+endif (ENABLE_TESTING)
+
+
+
 
